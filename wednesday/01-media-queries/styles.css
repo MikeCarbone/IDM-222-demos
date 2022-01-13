@@ -1,0 +1,129 @@
+/*
+    This is the CSS way to declare a "variable zone"
+    Technically, ":root" refers to the highest parent in our HTML document
+    So with that understanding, it's pretty much the same as an html { } selector in our css
+    We use :root though because it's fancy and more arbitrary
+    :root = html
+
+    These are called "CSS custom properties". We'll be covering them more in Week 8
+*/
+:root {
+    --background-color: antiquewhite;
+    --background-color-two: burlywood;
+    --link-color: black;
+
+    --padding-avg: 4rem;
+}
+
+/*
+    Style resets, removes browser styling
+    Remember adding a normalize.css to your project? This is like that, except quick, dirty and easy
+*/
+* {
+    border: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* --------- BEGIN OUR MOBILE CODE --------- */
+
+/* Using our CSS custom properties in action */
+header {
+    background-color: var(--background-color);
+    padding: var(--padding-avg);
+}
+
+/* Remove the disc in front of our list elements */
+header li {
+    list-style-type: none;
+}
+
+header li a {
+    color: var(--link-color);
+    margin: 0 25px;
+}
+
+main {
+    background-color: var(--background-color-two);
+    min-height: 99vh;
+}
+
+footer {
+    background-color: var(--background-color);
+    padding: var(--padding-avg);
+}
+
+footer p {
+    text-align: center;
+}
+
+aside {
+    border: 1px solid var(--link-color);
+    color: white;
+    text-align: center;
+}
+
+/* Notice how we're hiding our big navigation */
+.big-nav {
+    display: none;
+}
+/*  ^ ----- END MOBILE CODE ----- ^ */
+
+
+/*
+    Use pixels or em, I prefer pixels
+    Everything below here is big screen CSS
+    This is like saying "if the screen is larger than 700px, use this CSS"
+*/
+@media screen and (min-width: 700px) {
+    main {
+        display: flex;
+    }
+
+    aside {
+        color: red;
+        padding: 6rem;
+    }
+
+    main div {
+        padding: 6rem;
+    }
+
+    .big-nav {
+        display: block;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+}
+
+/*
+    This is like saying "if the screen is larger than 1000px, use THIS CSS"
+    Note that the media query above this is still true, so normal cascading rules apply 
+*/
+@media screen and (min-width: 1000px) {
+    aside {
+        display: none;
+    }
+
+    main div {
+        padding: 6rem;
+    }
+}
+
+/*
+    This is how we can address a dark mode
+    prefers-color-scheme allows us to target this
+    Since we used custom properties, we can switch those values to make it into dark mode
+    Any other CSS will also work inside here. It doesn't have to be a :root rule
+*/
+@media screen and (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #333333;
+        --background-color-two: gray;
+        --link-color: white;
+    }
+}
+

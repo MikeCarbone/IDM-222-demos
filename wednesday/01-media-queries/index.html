@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wednesday Demo Media Queries</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <!--
+            Let's include a navigation <nav> for big screens and a navigation <nav> for mobile
+            Using media queries, we can hide one or the other depending on the screen size
+        -->
+        <!-- This will be our big screen nav -->
+        <nav class="big-nav">
+            <ul>
+                <li>
+                    <a href="#">Link 1</a>
+                </li>
+                <li>
+                    <a href="#">Link 2</a>
+                </li>
+                <li>
+                    <a href="#">Link 3</a>
+                </li>
+                <li>
+                    <a href="#">Link 4</a>
+                </li>
+            </ul>
+        </nav>
+        <!--
+            This will be our mobile nav
+            Notice how we have an image in this one, the content doesn't have to be the same
+        -->
+        <nav class="mobile-nav">
+            <img class="image" src="https://geographical.co.uk/media/k2/items/cache/e533c4b8d2d2d3798f3271c35ca6e050_XL.jpg" />
+            <ul>
+                <li>
+                    <a href="#">Mobile Link 1</a>
+                </li>
+                <li>
+                    <a href="#">Mobile Link 2</a>
+                </li>
+                <li>
+                    <a href="#">Mobile Link 2</a>
+                </li>
+                <li>
+                    <a href="#">Mobile Link 2</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!--
+        <main> tag is for unique content on a page. <header> and <footer> are the same on every page, so they don't belong in <main>
+    -->
+    <main>
+        <aside>
+            <h2>Sidebar!</h2>
+        </aside>
+        <div>
+            <h1>Welcome to the demo</h1>
+        </div>
+    </main>
+    <!--
+        &copy; is an HTML entity that will render a copyright sign ©
+        Here is a list of html entities: https://www.freeformatter.com/html-entities.html
+    -->
+    <footer>
+        <p>&copy; 2022 Mike Carbone</p>
+    </footer>
+</body>
+</html>

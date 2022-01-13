@@ -1,0 +1,61 @@
+/*
+    This is the CSS way to declare a "variable zone"
+    Technically, ":root" refers to the highest parent in our HTML document
+    So with that understanding, it's pretty much the same as an html { } selector in our css
+    We use :root though because it's fancy and more arbitrary
+    :root = html
+
+    These are called "CSS custom properties". We'll be covering them more in Week 8
+*/
+:root {
+    --background-color: red;
+    --bg-two: orange;
+}
+
+/*
+    Style resets, removes browser styling
+    Remember adding a normalize.css to your project? This is like that, except quick, dirty and easy
+*/
+* {
+    border: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-two);
+}
+
+/* Pushes the footer to the bottom */
+main {
+    min-height: 99vh;
+}
+
+img {
+    width: 100%;
+}
+
+/*  ^ End mobile code ^ */
+
+
+/* when the screen becomes 700px wide, use this CSS */
+@media screen and (min-width: 700px) {
+
+    /* We can change anything in here */
+    img {
+        max-width: 500px;
+    }
+
+    p {
+        max-width: 600px;
+        line-height: 1.5;
+        margin: 10px 0;
+    }
+
+    main {
+        max-width: 600px;
+        padding: 50px;
+        margin: 0 auto;
+    }
+}
