@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDM222 Demos</title>
+    <style>
+        * {
+            border: none;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            background-color: #202020;
+            color: white;
+        }
+
+        header {
+            padding: 50px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 10px;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        section {
+            background-color: #2d2d2d;
+            border: 1px solid #525252;
+            border-radius: 5px;
+            padding: 25px;
+            width: 40%;
+        }
+
+        h2 {
+            margin: 10px 0;
+        }
+        
+        a {
+            color: #a1a7ff;
+            font-family: monospace;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        .lesson {
+            margin: 25px;
+        }
+
+        section p {
+            display: inline-block;
+        }
+
+        @media screen and (max-width: 700px) {
+            main {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            section {
+                margin-bottom: 50px;
+                padding: 20px;
+                width: 100%;
+            }
+
+            .lesson {
+                margin: 25px 0 25px 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Drexel IDM-222 Winter '22</h1>
+        <p>By Mike Carbone</p>
+    </header>
+    <main>
+        <section>
+            <h2>Monday:</h2>
+            <div class="lesson">
+                <p>01-media-queries:</p>
+                <a href="./monday/01-media-queries/index.html">Live</a>
+                <a href="https://github.com/MikeCarbone/IDM-222-demos/tree/master/monday/01-media-queries">Github</a>
+            </div>
+        </section>
+        <section>
+            <h2>Wednesday:</h2>
+            <div class="lesson">
+                <p>01-media-queries:</p>
+                <a href="./wednesday/01-media-queries/index.html">Live</a>
+                <a href="https://github.com/MikeCarbone/IDM-222-demos/tree/master/wednesday/01-media-queries">Github</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
