@@ -1,0 +1,126 @@
+/* We can even use flexbox values in custom properties for easy responsiveness */
+:root {
+    --resp-flex-direction: column;
+}
+
+/* Normalize our styles */
+* {
+    border: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* This code isn't used in this example, it's just for your reference */
+.parent {
+    /* Triggers the element to be a flexbox */
+    display: flex;
+
+    /* Controls horizontal alignment */
+    justify-content: space-between;
+
+    /* Controls vertical alignment */
+    align-items: center;
+
+    /* Controls direction, can use column here */
+    flex-direction: row;
+
+    /* Controls the wrapping behavior of child elements */
+    flex-wrap: wrap;
+}
+
+/* Example code again, not actually used */
+.child {
+    /* Control where this child is displayed in relation to the other children in the flexbox */
+    order: 1;
+
+    /* Control the proportional size of the item */
+    flex-grow: 2;
+
+    /* sets the flex shrink factor of a flex item */
+    flex-shrink: 1;
+
+    /* Override the behavior of the parent's align-items rule */
+    align-self: center;
+}
+
+html {
+    background-color: lightblue;
+}
+
+/*
+    Weird thing:
+    flex-direction: column "rotates" the containing box
+    justify-content and align-items won't behave the same in flex-direction: column
+    those two properties kind of reverse
+    imagine a box rotating 90deg when it's in column
+    but the top is the same
+*/
+.hero {
+    align-items: center;
+    background-color: lightcoral;
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+    height: 400px;
+    justify-content: center;
+}
+
+.card-container {
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+/* parent with display flex */
+.card {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+.card__img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.card__text {
+    font-family: sans-serif;
+    max-width: 300px;
+    line-height: 1.5;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.card__btn {
+    margin-top: auto;
+}
+
+.extra-space {
+    height: 600px;
+}
+
+/* Big screen code */
+@media screen and (min-width: 700px) {
+    .card-container {
+        flex-direction: row;
+    }
+
+    .card {
+        width: 31%;
+    }
+}
+
+
+.parent {
+    /* flex-direction: row | column | row-reverse; */
+    /* flex-direction: row-reverse; */
+    flex-direction: column;
+}
