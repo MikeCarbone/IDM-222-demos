@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <main>
+        <div class="section">
+            <h1 class="section__title">Section 1</h1>
+            <div class="card-container">
+                <div class="card">
+                    <p class="card__heading">Child 1</p>
+                </div>
+                <div class="card">
+                    <p class="card__heading">Child 2</p>
+                </div>
+                <div class="card">
+                    <p class="card__heading">Child 3</p>
+                </div>
+                <div class="card">
+                    <p class="card__heading">Child 4</p>
+                </div>
+            </div>
+        </div>
+        <section class="section section--blue">
+            <!-- We can use multiple class names to override default styles -->
+            <button class="btn">Primary Button</button>
+            <button class="btn--secondary btn">Secondary Button</button>
+        </section>
+        <section class="section section--orange">
+            <h1 class="section__title">Responsive Boxes</h1>
+            <div class="panel">
+                <div class="panel__item">
+                    <h2 class="panel__text">Item 1</h2>
+                    <img class="panel__item-img" alt="mountains" src="https://www.travelmanagers.com.au/wp-content/uploads/2012/08/AdobeStock_254529936_Railroad-to-Denali-National-Park-Alaska_750x500.jpg" />
+                </div>
+                <div class="panel__item">
+                    <h2 class="panel__text">Item 2</h2>
+                    <img class="panel__item-img" alt="mountains" src="https://www.travelmanagers.com.au/wp-content/uploads/2012/08/AdobeStock_254529936_Railroad-to-Denali-National-Park-Alaska_750x500.jpg" />
+                </div>
+                <div class="panel__item">
+                    <h2 class="panel__text">Item 3</h2>
+                    <img class="panel__item-img" alt="mountains" src="https://www.travelmanagers.com.au/wp-content/uploads/2012/08/AdobeStock_254529936_Railroad-to-Denali-National-Park-Alaska_750x500.jpg" />
+                </div>
+            </div>
+        </section>
+        <section class="section section--no-height section--blue">
+            <img class="img__big" src="https://drexel.edu/~/media/Images/coronavirus/covid-drexel-dragon-bkgrd/mobile.ashx" />
+        </section>
+        <!-- Showing the order property -->
+        <section class="section">
+            <h1 class="section__title">Order / align-self Property on Children</h1>
+            <div class="panel">
+                <div class="panel__item">
+                    <h2 class="panel__text">Item 1</h2>
+                    <img class="panel__item-img" alt="mountains" src="https://www.travelmanagers.com.au/wp-content/uploads/2012/08/AdobeStock_254529936_Railroad-to-Denali-National-Park-Alaska_750x500.jpg" />
+                </div>
+                <div class="panel__item panel__item--last">
+                    <h2 class="panel__text">Item 2</h2>
+                    <img class="panel__item-img" alt="mountains" src="https://www.travelmanagers.com.au/wp-content/uploads/2012/08/AdobeStock_254529936_Railroad-to-Denali-National-Park-Alaska_750x500.jpg" />
+                </div>
+                <div class="panel__item">
+                    <h2 class="panel__text">Item 3</h2>
+                    <img class="panel__item-img" alt="mountains" src="https://www.travelmanagers.com.au/wp-content/uploads/2012/08/AdobeStock_254529936_Railroad-to-Denali-National-Park-Alaska_750x500.jpg" />
+                </div>
+            </div>
+        </section>
+        <section class="section section--blue">
+            <h2 class="section__title">flex-direction weird, rotates box</h2>
+            <div class="items">
+                <div class="items__item">
+                    <p>Item 1</p>
+                </div>
+                <div class="items__item">
+                    <p>Item 2</p>
+                </div>
+                <div class="items__item">
+                    <p>Item 3</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
