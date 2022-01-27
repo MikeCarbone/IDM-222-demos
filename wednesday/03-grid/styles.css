@@ -1,0 +1,129 @@
+* {
+    border: none;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.nav {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+.nav__logo {
+    justify-self: start;
+    width: 125px;
+}
+
+.nav__list {
+    display: flex;
+}
+
+.nav__list-item {
+    list-style-type: none;
+}
+
+.nav__list-link {
+    text-decoration: none;
+    padding: 25px;
+}
+
+.nav__btns {
+    justify-self: end;
+}
+
+.nav__btn {
+    background-color: black;
+    border-radius: 11px;
+    color: white;
+    cursor: pointer;
+    padding: 15px 20px;
+}
+
+.section {
+    background-color: lightpink;
+    padding: 50px 0;
+}
+
+.section--blue {
+    background-color: lightskyblue;
+}
+
+.dogs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+    /* grid-row-gap | grid-column-gap */
+    grid-gap: 25px;
+    padding: 25px;
+}
+
+.dogs__pic {
+    width: 100%;
+}
+
+/* Showing off object-fit and object-position */
+.big-pics__pic {
+    display: block;
+    height: 1000px;
+    margin: 0 auto;
+    object-fit: cover;
+    object-position: left;
+    width: 30%;
+}
+
+.grid-areas {
+    display: grid;
+    grid-template-areas:
+        "navigation navigation navigation"
+        "aside main main"
+        "pic main main"
+        "footer footer footer"
+    ;
+}
+
+.grid-areas__footer-logo {
+    width: 150px;
+}
+
+.grid-areas__nav {
+    padding: 50px;
+    background-color: white;
+    grid-area: navigation;
+}
+
+.grid-areas__sidebar {
+    background-color: black;
+    grid-area: aside;
+    min-width: 200px;
+    min-height: 300px;
+}
+
+.grid-areas__main-content {
+    grid-area: main;
+    background-color: burlywood;
+}
+
+.grid-areas__footer {
+    background-color: cornsilk;
+    grid-area: footer;
+    padding: 100px;
+}
+
+.grid-areas__pic {
+    grid-area: pic;
+    width: 100%;
+}
+
+.desc {
+    background-color: lightgreen;
+    color: black;
+    font-weight: bolder;
+    padding: 15px;
+}
+
+
