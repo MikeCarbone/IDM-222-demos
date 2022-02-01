@@ -1,0 +1,119 @@
+/* Reset our browser styles */
+* {
+    border: none;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    align-items: center;
+    border-bottom: 1px solid #acacac;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+.header__list {
+    display: flex;
+}
+
+.header__list-item {
+    list-style-type: none;
+}
+
+.header__list-link {
+    color: #303030;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.header__logo {
+    width: 150px;
+}
+
+.btn {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 11px;
+    cursor: pointer;
+    padding: 10px 15px;
+    min-width: 150px;
+}
+
+.btn--secondary {
+    background-color: black;
+    color: white;
+}
+
+.store {
+    display: grid;
+    grid-template-areas:
+        'hero hero hero'
+        'sidebar menu menu'
+        'sidebar menu menu'
+        'banner banner banner';
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    min-height: 700px;
+}
+
+.store__hero {
+    background-color: lightsalmon;
+    display: flex;
+    grid-area: hero;
+    justify-content: space-evenly;
+    padding: 20px 0;
+}
+
+.store__hero-ad {
+    background-color: white;
+    border-radius: 11px;
+    padding: 25px;
+}
+
+.store__sidebar {
+    background-color: lightblue;
+    grid-area: sidebar;
+}
+
+.store__menu {
+    background-color: lightpink;
+    grid-area: menu;
+}
+
+.store__banner {
+    background-color: lightyellow;
+    grid-area: banner;
+}
+
+.pics {
+    background-color: lightsteelblue;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+    /* short-hand for grid-row-gap grid-column-gap  */
+    grid-gap: 50px 25px;
+    padding: 25px;
+}
+
+.pics__pic {
+    width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+    .store {
+        grid-template-areas:
+            'hero hero hero'
+            'menu menu menu'
+            'menu menu menu'
+            'banner banner banner'
+            'sidebar sidebar sidebar';
+    }
+}
+
+
+
+
