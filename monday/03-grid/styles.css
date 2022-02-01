@@ -115,5 +115,15 @@
 }
 
 
+/* max-width: big to small */
+/* min-width: small to big */
+/* Once the screen grows to this size... do this */
+@media screen and (max-width: 800px) {
+    .store {
+        display: none;
+    }
+}
+
+
 
 
