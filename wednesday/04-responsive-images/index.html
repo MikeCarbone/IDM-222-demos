@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Images Demo</title>
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <!-- Mobile first header -->
+        <nav class="mobile-nav">
+            <div role="img" class="mobile-nav__button" id="button-container">
+                <!-- Menu icon -->
+                <svg id="open-button" class="mobile-nav__menu-icon mobile-nav__menu-icon--closed" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <!-- Close button icon -->
+                <svg id="close-button" class="mobile-nav__menu-icon mobile-nav__menu-icon--open" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </div>
+            <ul class="mobile-nav__list" id="mobile-menu">
+                <li class="mobile-nav__list-item">
+                    <a class="mobile-nav__list-link" href="#">Home</a>
+                </li>
+                <li class="mobile-nav__list-item">
+                    <a class="mobile-nav__list-link" href="#">About</a>
+                </li>
+                <li class="mobile-nav__list-item">
+                    <a class="mobile-nav__list-link" href="#">Portfolio</a>
+                </li>
+                <li class="mobile-nav__list-item">
+                    <a class="mobile-nav__list-link" href="#">Services</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Big screen nav -->
+        <nav class="nav">
+            <ul class="nav__list" id="mobile-menu">
+                <li class="nav__list-item">
+                    <a class="nav__list-link" href="#">Home</a>
+                </li>
+                <li class="nav__list-item">
+                    <a class="nav__list-link" href="#">About</a>
+                </li>
+                <li class="nav__list-item">
+                    <a class="nav__list-link" href="#">Portfolio</a>
+                </li>
+                <li class="nav__list-item">
+                    <a class="nav__list-link" href="#">Services</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="section section1">
+            <!--
+                ORDER MATTERS, go from biggest to smallest <source />
+                The first <source /> that is true will supply the image with its srcset
+            -->
+            <picture>
+
+                <!-- Once we grow our screen past 1200px, use this image -->
+                <source media="(min-width: 1200px)" srcset="https://images.unsplash.com/photo-1643546014345-bbf1b12918a4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80" />
+ 
+                <!-- Once we grow our screen past 700px, use this image -->
+                <source media="(min-width: 700px)" srcset="https://images.unsplash.com/photo-1643631961497-238f8c59d171?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3732&q=80" />
+                
+                <source media="(min-width: 350px)" srcset="https://images.unsplash.com/photo-1643693231390-e11168fa1b06?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80" />
+
+                <!-- Big image, fallback if we have to -->
+                <img class="section1__img" alt="Red thing thats balding" src="https://images.unsplash.com/photo-1643255083197-18721220670e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3732&q=80" />
+            </picture>
+        </section>
+        <section class="section section2">
+            <picture>
+                <source media="(min-width: 1400px)" srcset="./images/building-large.jpg" />
+                <source media="(min-width: 700px)" srcset="./images/building-med.jpg" />
+
+                <!-- Min-width of 0px so that our smallest size is always accounted for -->
+                <source media="(min-width: 0px)" srcset="./images/building-small.jpg" />
+
+                <!-- Then we can use a medium sized image as our fallback, so we can make the most people happy
+                    (because we don't know what their screen size is and dont want to serve a really small image)
+                -->
+                <img src="./images/building-med.jpg" class="section2__img" alt="building hallway" />
+            </picture>
+        </section>
+    </main>
+    <script>
+        const buttonContainer = document.getElementById('button-container');
+        const openButton = document.getElementById('open-button');
+        const closeButton = document.getElementById('close-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        buttonContainer.addEventListener("click", () => {
+
+            if (Array.from(mobileMenu.classList).includes('mobile-nav__list--open')) {
+                // When we're closing the menu
+                mobileMenu.classList.remove('mobile-nav__list--open');
+                mobileMenu.classList.add('mobile-nav__list--close');
+                
+                openButton.style.display = 'block';
+                closeButton.style.display = 'none';
+            } else {
+                // When we're opening the menu
+                mobileMenu.classList.remove('mobile-nav__list--close');
+                mobileMenu.classList.add('mobile-nav__list--open');
+                
+                openButton.style.display = 'none';
+                closeButton.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
