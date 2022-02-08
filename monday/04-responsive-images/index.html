@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Images Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav__upper-cont">
+            <div class="nav__logo-cont">
+                <svg class="nav__logo" width="32" height="32" class="hic6U" viewBox="0 0 32 32" version="1.1" aria-labelledby="unsplash-home" aria-hidden="false"><title id="unsplash-home">Unsplash Home</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg>
+            </div>
+            <input class="nav__search" role="search" type="text" placeholder="Search free images" />
+            <!--
+                generic .btn class to reuse in other places
+                AND a .nav__btn to target this one specifically
+            -->
+            <button class="btn nav__btn">Submit a photo</button>
+        </div>
+
+        <!-- This is our MOBILE nav -->
+        <div class="mobile-nav nav__mobile-nav">
+            <!-- This is our open button -->
+            <div id="mobile-nav-open-button" class="mobile-nav__button">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </div>
+            <!-- This is horrible HTML, we shouldn't really be reusing our other nav like this
+                for the most part, the class names shouldnt be the same bc we'll run into styling issues
+            -->
+            <nav id="mobile-nav" class="mobile-nav__nav">
+                <!-- close button -->
+                <div id="mobile-nav-close-button" class="mobile-nav__close-button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </div>
+                <ul class="mobile-nav__nav-list">
+                    <li class="nav__nav-list-item">
+                        <a href="#" class="nav__nav-list-link">
+                            Lifestyle
+                        </a>
+                    </li>
+                    <li class="nav__nav-list-item">
+                        <a href="#" class="nav__nav-list-link">
+                            Architecture
+                        </a>
+                    </li>
+                    <li class="nav__nav-list-item">
+                        <a href="#" class="nav__nav-list-link">
+                            People
+                        </a>
+                    </li>
+                    <li class="nav__nav-list-item">
+                        <a href="#" class="nav__nav-list-link">
+                            Troy Finamore
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- This is our DESKTOP nav -->
+        <div class="nav__nav">
+            <ul class="nav__nav-list">
+                <li class="nav__nav-list-item">
+                    <a href="#" class="nav__nav-list-link">
+                        Lifestyle
+                    </a>
+                </li>
+                <li class="nav__nav-list-item">
+                    <a href="#" class="nav__nav-list-link">
+                        Architecture
+                    </a>
+                </li>
+                <li class="nav__nav-list-item">
+                    <a href="#" class="nav__nav-list-link">
+                        People
+                    </a>
+                </li>
+                <li class="nav__nav-list-item">
+                    <a href="#" class="nav__nav-list-link">
+                        Troy Finamore
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section class="hero">
+            <div class="hero__content">
+                <h1 class="hero__title">Unsplash</h1>
+                <p class="hero__subtext">The internet’s source of freely-usable images.</p>
+                <p class="hero__subtext">Powered by creators everywhere.</p>
+            </div>
+            <!-- This element will darken the image below it by adding an opaque black background -->
+            <div class="hero__shade"></div>
+
+            <!-- Implement our picture element to load different images based on screen size -->
+            <picture>
+                <!-- Browser will look for the first <source> media attribute that is TRUE, and use that image -->
+                <!-- When the screen is larger than 1200px, use this image, LADY -->
+                <source media="(min-width: 1200px)" srcset="https://images.unsplash.com/photo-1644204757666-905edc635409?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=816&q=80"/>
+                <!-- When the screen size is larger than 700px, use this image, FILM GUY -->
+                <source media="(min-width: 700px)" srcset="https://images.unsplash.com/photo-1644250471993-ea12b3e8703c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"/>
+                <!-- Anything below the two above, use this image, ELK -->
+                <source media="(min-width: 0px)" srcset="https://images.unsplash.com/photo-1644254298332-f0f016ded081?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"/>
+                <!-- In case browser doesnt support this, use this image as a default -->
+                <img class="hero__image" src="https://images.unsplash.com/photo-1434394354979-a235cd36269d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1702&q=80" />
+            </picture>
+        </section>
+
+        <section class="projects">
+            <div class="projects__project">
+                <h2 class="project__title">Web dev 1</h2>
+
+                <!-- <picture> lets US decide when to switch the image -->
+                <!-- NO class names or other <img> attributes on <picture> or <source> -->
+                <!-- This is most common, and will get the job done 99% of the time -->
+                <picture>
+
+                    <source media="(min-width: 1200px)" srcset="./images/forest-large.jpg" />
+                    
+                    <source media="(min-width: 700px)" srcset="./images/forest-med.jpg" />
+
+                    <source media="(min-width: 0px)" srcset="./images/forest-small.jpg" />
+
+                    <!-- Default image -->
+                    <img class="project__img" src="./images/forest-med.jpg" alt="forest" />
+                </picture>
+            </div>
+
+            <div class="projects__project">
+                <h2 class="project__title">Web dev 1</h2>
+                <!--
+                    <img srcset="" sizes="" /> lets the BROWSER decide which image to use 
+                    Since our layout is rendering a small picture even at big screens,
+                    lets use an img tag with srcsets so we can let the browser decide which image to use
+                    src is default
+                    Biggest to smallest on srcset
+                -->
+                <img class="project__img"
+                    srcset="
+                        ./images/forest-large.jpg 1300w,
+                        ./images/forest-med.jpg 700w,
+                        ./images/forest-small.jpg 400w
+                    "
+                    sizes="33vw"
+                    src="./images/forest-med.jpg"
+                    alt="forest"
+                />
+
+
+                <!-- NO class names or other <img> attributes on <picture> or <source> -->
+                <picture>
+
+                    <source media="(min-width: 1200px)" srcset="./images/forest-large.jpg" />
+                    
+                    <source media="(min-width: 700px)" srcset="./images/forest-med.jpg" />
+
+                    <source media="(min-width: 0px)" srcset="./images/forest-small.jpg" />
+
+                    <!-- Default image -->
+                </picture>
+            </div>
+        </section>
+        <script>
+            // Mobile menu logic
+            const mobileNav = document.getElementById('mobile-nav');
+            const openButton = document.getElementById('mobile-nav-open-button');
+            const closeButton = document.getElementById('mobile-nav-close-button');
+
+            openButton.addEventListener("click", () => {
+                mobileNav.classList.remove('mobile-nav__nav--closed');
+                mobileNav.classList.add('mobile-nav__nav--open');
+            });
+
+            // When we close it do the opposite
+            closeButton.addEventListener("click", () => {
+                mobileNav.classList.remove('mobile-nav__nav--open');
+                mobileNav.classList.add('mobile-nav__nav--closed');
+            });
+
+        </script>
+    </main>
+</body>
+</html>

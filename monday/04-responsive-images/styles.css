@@ -1,0 +1,229 @@
+/* Use this selector to start writing some variables */
+:root {
+    /* This can be named anything! We use -- to say its a variable */
+    --border-radius: 11px;
+
+    --color-grey-1: #eeeeee;
+    --color-white: #fff;
+}
+
+* {
+    border: none;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.nav {
+    border-bottom: 1px solid var(--color-grey-1);
+    padding: 25px;
+    width: 100%;
+}
+
+.nav__upper-cont {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav__search {
+    background-color: var(--color-grey-1);
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    min-width: 70%;
+}
+
+.nav__nav {
+    padding: 25px 0;
+}
+
+.nav__nav-list {
+    align-items: center;
+    display: flex;
+}
+
+.nav__nav-list-item {
+    list-style-type: none;
+}
+
+.nav__nav-list-link {
+    color: #767676;
+    text-decoration: none;
+    padding: 5px 25px;
+}
+
+.nav__nav {
+    display: none;
+}
+
+.mobile-nav__nav {
+    background-color: var(--color-grey-1);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    /* after we're done styling, let's shoot it off to the side */
+    transform: translateX(100%);
+    transition: all .15s ease-in;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* After we click the open button, we're saying slide in! */
+/* This works by adding this class after we click the button */
+.mobile-nav__nav--open {
+    transform: translateX(0);
+    transition: all .15s ease-in;
+}
+
+/* When we close the menu, slide it back off screen */
+.mobile-nav__nav--closed {
+    /* This percentage is the width of the parent */
+    transform: translateX(100%);
+    transition: all .15s ease-in;
+}
+
+.mobile-nav__close-button {
+    cursor: pointer;
+}
+
+.mobile-nav__button {
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    max-width: 75px;
+}
+
+.mobile-nav__nav-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px 0;
+}
+
+/* don't write like this, use BEM!!! */
+.mobile-nav__nav-list a {
+    color: black;
+    display: block;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.mobile-nav__close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 75px;
+    z-index: 1010;
+}
+
+/* This is going to be the styles for all of our buttons */
+.btn {
+    background-color: transparent;
+    border: 1px solid #767676;
+    border-radius: var(--border-radius);
+    color: #111;
+    cursor: pointer;
+    padding: 10px 15px;
+    /* properties, time, easing function */
+    transition: all .15s ease-in;
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
+    /* Let's duplicate our transition to work on hover ON and hover OFF */
+    transition: all .15s ease-in;
+}
+
+.hero {
+    min-height: 600px;
+    /* This won't change anything, except position: absolute children will stay inside the container */
+    position: relative;
+}
+
+.hero__image {
+    height: 100%;
+
+    /* Make our image not so stretchy ew! */
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    /* Make sure the image is at the top and left, instead of some random place */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+}
+
+.hero__shade {
+    background-color: black;
+    height: 100%;
+    opacity: .5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 25;
+}
+
+.hero__content {
+    margin: 0 auto;
+    max-width: 60%;
+    padding: 150px 0;
+    /* if you want to use z-index, you need to have the element as
+        position: absolute, or position: relative
+    */
+    position: relative;
+    z-index: 50;
+}
+
+.hero__title {
+    color: var(--color-white);
+    font-size: 3rem;
+    margin: 0 0 15px 0;
+}
+
+.hero__subtext {
+    color: var(--color-white);
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.projects {
+    padding: 50px;
+}
+
+.projects__project {
+    border: 1px solid var(--color-grey-1);
+    border-radius: var(--border-radius);
+    max-width: 400px;
+    padding: 35px;
+}
+
+.project__img {
+    object-fit: cover;
+    object-position: center;
+    max-height: 150px;
+    width: 100%;
+}
+
+
+/* When the screen is bigger than this, use this CSS */
+@media screen and (min-width: 700px) {
+
+    /* Hide our mobile nav, show our desktop nav */
+
+    .mobile-nav {
+        display: none;
+    }
+
+    .nav__nav {
+        /* display:block or grid or flex, whatever you need for your design,
+            just make it visible
+        */
+        display: block;
+    }
+}

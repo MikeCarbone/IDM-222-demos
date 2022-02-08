@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Images Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <main>
+        <h1>Hello</h1>
+
+
+        <!-- This is what you'll be writing 99% of the time -->
+        <picture>
+            <!-- If its above 1200px, load this -->
+            <source media="(min-width: 1200px)" srcset="logo-big.png" />
+
+            <!-- If our screen is wider than 700px, load THIS image -->
+            <source media="(min-width: 700px)" srcset="logo-med.png" />            
+
+            <!-- If our screen is wider than 0px, load THIS image -->
+            <source media="(min-width: 0px)" srcset="logo-small.png" />            
+
+            <!--
+                If our browser doesn't support this, let's not assume our screen is really big or small,
+                so lets serve a medium sized image just in case
+            -->
+            <img src="logo-med.png" alt="My IDM logo" class="header__logo" /> 
+        </picture>
+
+        <!--
+            Minimum when using <picture> is one <source>, otherwise, just use an <img>,
+        -->
+        <picture>
+            <!-- If our screen is wider than 0px, load THIS image -->
+            <source media="(min-width: 0px)" srcset="logo-small.png" />            
+
+            <!--
+                If our browser doesn't support this, let's not assume our screen is really big or small,
+                so lets serve a medium sized image just in case
+            -->
+            <img src="logo-med.png" alt="My IDM logo" class="header__logo" /> 
+        </picture>
+
+
+
+
+
+
+
+
+
+
+    </main>
+</body>
+</html>
