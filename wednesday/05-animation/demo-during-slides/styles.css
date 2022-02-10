@@ -1,0 +1,147 @@
+* {
+    border: none;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+button {
+    color: red;
+}
+
+button:hover {
+    color: blue;
+
+    /* property timing speed-function delay */
+    transition: color .15s cubic-bezier(0.32, 0, 0.67, 0);
+}
+
+a {
+    color: blue;
+    border-bottom: 1px solid blue;
+    font-size: 12px;
+    display: block;
+    opacity: 1;
+
+    /* Add a transition to the original selector for the transition to work in reverse */
+    transition: all .15s cubic-bezier(0.32, 0, 0.67, 0);
+}
+
+a:hover {
+    color: red;
+    border-bottom: 1px solid red;
+    font-size: 14px;
+
+    /* This is the long way to do it  */
+    /* enables you to specify different properties of the transition */
+    /* But is a little more bulky to write */
+    /* transition: color .15s ease-in,
+                border-bottom .15s ease-in,
+                font-size .15s ease-in; */
+
+    /* Usually I just write it like this */
+    /* transition: all .15s ease-in; */
+}
+
+
+.ball {
+    /* We have to make sure we specify the animation property on the thing we want to animate */
+    /* use animation "moveRight" */
+    /* make it last 1 second */
+    /* when the animation is playing, use "ease-in" as our speed curve / timing function */
+    /* play the animation infinitely */
+    /* when it plays, alternate and reverse the animation so it bounces back and forth */
+    /* delay it 2 sec */
+    animation: moveRight 1s ease-in infinite 2s alternate;
+    background-color: orange;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+/* @keyframes is telling CSS that we're defining an animation */
+/* this wont actually trigger an animation */
+@keyframes moveRight {
+    /* The first frame in the animation */
+    from {
+        transform: translateX(0);
+    }
+    
+    /* Last frame in the animation */
+    to {
+        transform: translateX(80vw);
+    }
+}
+
+.title {
+    /* By using forwards in the animation,
+        the final properties of the animation (whats inside "to {}" ),
+        are going to stay after the animation completes
+    */
+    animation: fadeIn .5s ease-in 1s forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.ball-2 {
+    /* Whatever you dont specify, the defaults will kick in */
+    /* default timing = linear */
+    /* default iteration count = 1 */
+    /* default direction = normal */
+    animation: animateBall 5s linear;
+    background-color: orange;
+    border: 2px dotted black;
+    /* border-radius: 50%; */
+    height: 100px;
+    width: 100px;
+}
+
+/* Lets define our new animation */
+@keyframes animateBall {
+    0% {
+        /* any css can go inside these things */
+        background-color: orange;
+        transform: rotateX(0deg);
+    }
+
+    22% {
+        background-color: red;
+    }
+
+    31% {
+        background-color: blue;
+    }
+
+    75% {
+        /* Lets double it in size when we're 3/4 of the way through the animation */
+        transform: scale(2);
+    }
+
+    100% {
+        opacity: 0;
+        /* Not sure why this doesnt work */
+        transform: rotateX(360deg);
+    }
+}
+
+.img {
+    filter: sepia(0%) blur(15px);
+    transition: all .2s ease-in;
+}
+
+.img:hover {
+    filter: sepia(90%) blur(5px);
+}

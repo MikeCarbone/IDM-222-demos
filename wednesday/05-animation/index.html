@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="header__cont">
+            <img class="header__logo" src="https://carbonology.in/images/Carbonology_Logo_WithType_Dark_600px.png" alt="carbone logo" />
+            <nav class="header__nav">
+                <ul class="header__list">
+                    <li class="header__list-item">
+                        <a class="header__link" href="#">resume</a>
+                    </li>
+                    <li class="header__list-item">
+                        <a class="header__link" href="#">about</a>
+                    </li>
+                    <li class="header__list-item">
+                        <a class="header__link" href="#">contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero__cont">
+                <h1 class="hero__title">Hello everyone, I&apos;m Mike</h1>
+                <div class="hero__underline"></div>
+                <p class="hero__subtitle">I&apos;m a developer from Jersey</p>
+                <div id="horizontal-rule" class="hero__underline hero__underline--2"></div>
+            </div>
+        </section>
+        <section class="projects">
+            <div class="projects__cont">
+                <div class="projects__piece">
+                    <h2 class="projects__title">Code</h2>
+                    <p class="projects__subtitle">We coded some great stuff</p>
+                    <button class="projects__btn">See Project</button>
+                </div>
+                <div class="projects__piece projects__piece--second">
+                    <h2 class="projects__title">Design</h2>
+                    <p class="projects__subtitle">We designed some nice things</p>
+                    <button class="projects__btn">See Project</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+
+        // Let's get our element that we're animating
+        const hr = document.getElementById('horizontal-rule');
+
+        // This is outdated I think
+        // I think this is what you should use?
+        // the scroll event on window is not performant AKA LAGGY
+        // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+        
+        // Lets keep track of the scale every time we change the styles
+        // start with null, but will be a number like 0.4
+        // Let's keep it outside of that other code so it doesn't get reset to null every time we scroll
+        let lastScale = null;
+
+        window.addEventListener("scroll", () => {
+            // Scroll amount is # of pixels from the top of the screen
+            const scrollAmount = window.scrollY;
+
+            // positionDone is how many pixels away from the top when we want the animation to finish
+            const positionDone = 200;
+
+            // Only do the calculations if we're under our threshold
+            if (scrollAmount < positionDone) {
+
+                // A decimal between a value of 0 and 1
+                // We use .toFixed(1) to only use 1 decimal place
+                // 0.1231241232931232 becomes 0.1
+                const scale = (scrollAmount / positionDone).toFixed(1);
+                
+                // Don't update styles if the new calculated scale is equal to the last changed value
+                // so if 0.4 === 0.4 don't do anything and exit the function
+                if (scale === lastScale) {
+                    return
+                }
+
+                // Because we didn't get stopped at the code right before this,
+                // we know the scale value is different
+                // now, let's update our css from javascript
+                // We can use .style to target css on that element in javascript
+                hr.style.transform = 'scaleX(' + scale + ')';
+
+                // Let's update our lastScale value so we know for the next time we run this function
+                lastScale = scale;
+                
+                // Exit out of the function
+                return;
+            }
+        });
+    </script>
+</body>
+</html>

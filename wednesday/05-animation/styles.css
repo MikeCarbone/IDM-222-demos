@@ -1,0 +1,173 @@
+/* Lets create some custom css properties AKA variables */
+/* Now we can reuse them without worrying about design changes */
+:root {
+
+    /* Names can be whatever you want */
+    /* Just has to start with -- */
+    --color-black: #1d1d1d;
+
+    --color-foreground: #fafafa;
+
+    --max-width: 1200px;
+
+    --section-padding: 100px 0;
+}
+
+/* Animations go here */
+
+/* Define an animation called "fadeIn" */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translate(-100vw);
+    }
+
+    to {
+        transform: translate(0);
+    }
+}
+
+* {
+    border: none;
+    box-sizing: none;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: var(--color-black);
+    padding: 20px 0;
+}
+
+.header__cont {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: var(--max-width);
+}
+
+.header__list {
+    display: flex;
+}
+
+.header__list-item {
+    list-style-type: none;
+}
+
+.header__link {
+    color: var(--color-foreground);
+    padding: 0 20px;
+    text-decoration: none;
+}
+
+.header__logo {
+    filter: invert(1);
+    width: 200px;
+}
+
+.hero {
+    background-color: var(--color-black);
+    padding: var(--section-padding);
+}
+
+.hero__cont {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.hero__title {
+    /* lets use the animation called "fadeIn" */
+    /* the animation will last .5s */
+    /* we'll use the ease-in timing function */
+    /* we have a delay of .75s */
+    /* and we'll use "forwards" to keep the styles from the last frame of our animation */
+    animation: fadeIn .5s ease-in .75s forwards;
+    color: var(--color-foreground);
+    font-size: 5rem;
+    margin-bottom: 35px;
+    /* This will keep the text invisible while the animation is delayed */
+    opacity: 0;
+}
+
+.hero__subtitle {
+    /* We can reuse animations! */
+    animation: fadeIn .5s ease-in 1s forwards;
+    color: var(--color-foreground);
+    font-size: 1.5rem;
+    opacity: 0;
+}
+
+.hero__underline {
+    animation: grow 1s ease-in forwards;
+    background-color: #545454;
+    height: 2px;
+    margin: 0 0 50px 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    width: 100%;
+}
+
+.hero__underline--2 {
+    animation: none;
+    transition: all .5s linear;
+    /* DONT USE THIS */
+    will-change: transform;
+}
+
+@keyframes grow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+.projects {
+    padding: var(--section-padding);
+}
+
+.projects__cont {
+    margin: 0 auto;
+    max-width: var(--max-width);
+}
+
+.projects__btn {
+    background-color: var(--color-black);
+    border-radius: 11px;
+    border: 2px solid transparent;
+    color: var(--color-foreground);
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 25px 0 0 0;
+    padding: 15px 30px;
+    /* target ALL css properties that change */
+    /* complete in .15s */
+    /* timing function of ease-in */
+    transition: all .15s ease-in-out;
+}
+
+.projects__btn:hover {
+    background-color: transparent;
+    border: 2px solid var(--color-black);
+    color: var(--color-black);
+    transition: all .15s ease-in-out;
+}
+
+.projects__piece {
+    animation: slideInFromLeft .5s cubic-bezier(0.65, 0, 0.35, 1) 1.5s forwards;
+    border: 2px solid var(--color-black);
+    margin-bottom: 50px;
+    padding: 75px;
+    /* we need to match the initial state in our animation */
+    transform: translateX(-100vw);
+}
+
+/* Override the styles from the main class .projects__piece */
+.projects__piece--second {
+    animation: slideInFromLeft .5s cubic-bezier(0.65, 0, 0.35, 1) 1.75s forwards;
+}
+
