@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation demo</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="wrapper header__wrapper">
+            <img class="header__logo" src="https://carbonology.in/images/Carbonology_Logo_WithType_Dark_600px.png" />
+            <nav class="header__nav">
+                <ul class="header__list">
+                    <li class="header__list-item">
+                        <a class="header__anchor" href="#">Resume</a>
+                    </li>
+                    <li class="header__list-item">
+                        <a class="header__anchor" href="#">About</a>
+                    </li>
+                    <li class="header__list-item">
+                        <a class="header__anchor" href="#">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="wrapper hero__wrapper">
+                <h1 class="hero__title">Hi my name is Mike Carbone</h1>
+                <p class="hero__subtitle">Developer from New Jersey</p>
+                <div class="hero__underline"></div>
+            </div>
+        </section>
+        <section class="gallery" id="gallery">
+            <img class="gallery__image" src="https://images.unsplash.com/photo-1644760930835-28996e4f90b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80" />
+            <img class="gallery__image" src="https://images.unsplash.com/photo-1644760930835-28996e4f90b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80" />
+            <img class="gallery__image" src="https://images.unsplash.com/photo-1644760930835-28996e4f90b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80" />
+            <img class="gallery__image" src="https://images.unsplash.com/photo-1644760930835-28996e4f90b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80" />
+        </section>
+        <!-- Since we're animating the images instead of the gallery,
+             we need to make sure gallery has opacity 1 so its visible
+        -->
+        <section class="gallery gallery--visible" id="gallery-2">
+            <img class="gallery__image gallery__image--hidden" id="img-1" src="https://images.unsplash.com/photo-1644851159620-225a1bbb8bb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1354&q=80" />
+            <img class="gallery__image gallery__image--hidden" id="img-2" src="https://images.unsplash.com/photo-1644851159620-225a1bbb8bb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1354&q=80" />
+            <img class="gallery__image gallery__image--hidden" id="img-3" src="https://images.unsplash.com/photo-1644851159620-225a1bbb8bb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1354&q=80" />
+            <img class="gallery__image gallery__image--hidden" id="img-4" src="https://images.unsplash.com/photo-1644851159620-225a1bbb8bb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1354&q=80" />
+        </section>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>

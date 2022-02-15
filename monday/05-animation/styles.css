@@ -1,0 +1,140 @@
+/* Create an area to write some variables */
+:root {
+    /* we can call the variable anything as long as it starts with -- */
+    --color-black: #303030;
+    --color-white: #fafafa;
+}
+
+/* Lets define our animations in the same spot */
+@keyframes growLine {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+* {
+    border: none;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.header {
+    background-color: var(--color-black);
+    padding: 25px 0;
+    width: 100%;
+}
+
+.header__wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__logo {
+    filter: invert(1);
+    max-width: 250px;
+}
+
+.header__list {
+    display: flex;
+}
+
+.header__list-item {
+    list-style-type: none;
+}
+
+.header__anchor {
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 0 25px;
+}
+
+.hero {
+    background-color: var(--color-black);
+    min-height: 100vh;
+    padding: 100px 0;
+}
+
+.hero__title {
+    animation: fadeIn 0.5s ease-in .5s forwards;
+    color: var(--color-white);
+    font-size: 3.5rem;
+    margin: 0 0 25px 0;
+    /* Make sure this reflects the initial state of the animation */
+    opacity: 0;
+}
+
+.hero__subtitle {
+    animation: fadeIn 0.5s ease-in .75s forwards;
+    color: var(--color-white);
+    font-size: 1.5rem;
+    opacity: 0;
+}
+
+.hero__underline {
+    /*
+        lets use the animation growLine
+        its going to take 1s to complete
+        ease-in will be its speed function, JK lets use cubic-bezier from https://easings.net
+        delay it by 1s
+        forwards = keep the styles from the last frame after the animation ends 
+    */
+    animation: growLine 1s cubic-bezier(0.65, 0, 0.35, 1) 1s forwards;
+    background-color: var(--color-white);
+    height: 3px;
+    margin: 25px 0 0 0;
+    max-width: 50%;
+    /* We have to make sure the styles in here match the first frame of our animation */
+    transform: scaleX(0);
+    transform-origin: left;
+    width: 100%;
+}
+
+.gallery {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: 1fr 1fr;
+    padding: 25px;
+    opacity: 0;
+}
+
+.gallery--visible {
+    opacity: 1;
+}
+
+.gallery__image {
+    max-height: 450px;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+}
+
+.gallery__image--hidden {
+    opacity: 0;
+}
+
+/* this is the class we add to our element when its in view */
+.fadeIn {
+    animation: fadeIn 1s ease-in forwards;
+}
